@@ -15,14 +15,14 @@ const CounterScreen = () => {
     }
 
     return (
-        <View>
+        <View style={styles.mainContainer}>
             <Text style={styles.counterTextStyle}>{counter}</Text>
 
-            <View>
+            <View style={styles.buttonContainer}>
                 <TouchableOpacity onPress={handleIncrease} style={styles.buttonStyle}>
                     <Text style={styles.buttonTextStyle}>Increase</Text>
                 </TouchableOpacity>
-
+                <span style={styles.buttonGap}></span>
                 <TouchableOpacity onPress={handleDecrease} style={styles.buttonStyle}>
                     <Text style={styles.buttonTextStyle}>Decrease</Text>
                 </TouchableOpacity>
@@ -32,6 +32,18 @@ const CounterScreen = () => {
 }
 
 const styles = StyleSheet.create({
+    mainContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonContainer:
+    {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        flexDirection: 'row'
+    },
     buttonStyle: {
         marginTop: 15,
         backgroundColor: "#288ff7",
@@ -53,6 +65,11 @@ const styles = StyleSheet.create({
         fontSize: 38,
         fontWeight: '700',
         color: '#fc4830'
+    },
+    buttonGap:
+    {
+        marginLeft: 5,
+        marginRight: 5
     }
 })
 
