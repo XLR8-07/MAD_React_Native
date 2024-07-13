@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native';
 import TestComponent from './src/components/test-compontent';
 import CounterScreen from './src/screens/counter-screen';
+import ExamComponent from './src/components/exam-component';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <CounterScreen />
+      <ExamComponent />
     </View>
 
   );
