@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const ExamComponent = () => {
+const ExamComponent = (props: any) => {
   const [counter, setCounter] = useState(0);
   const [topLeft, setTopLeft] = useState("");
   const [topRight, setTopRight] = useState("");
@@ -27,6 +27,10 @@ const ExamComponent = () => {
     setBottomRight(`Value changed for ${counter}th Time`);
     setCounter(counter + 1);
   };
+
+  const handleCounterScreenButton = () => {
+    props.navigation.navigate("Counter")
+  }
 
   return (
     <>
@@ -65,6 +69,15 @@ const ExamComponent = () => {
           </TouchableOpacity>
         </View>
       </View>
+
+      <View style={styles.navigationButtonContainer}>
+        <TouchableOpacity
+          onPress={handleCounterScreenButton}
+          style={styles.navButtonStyle}
+        >
+          <Text style={styles.buttonTextStyle}>Counter Screen</Text>
+        </TouchableOpacity>
+      </View>
     </>
   );
 };
@@ -89,6 +102,23 @@ const styles = StyleSheet.create({
     width: 120,
     marginTop: 15,
     backgroundColor: "#288ff7",
+    borderRadius: 8,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    color: "#ffffff",
+    fontWeight: "700",
+  },
+  navigationButtonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  navButtonStyle: {
+    width: 120,
+    marginTop: 15,
+    backgroundColor: "#ff8d36",
     borderRadius: 8,
     paddingLeft: 10,
     paddingRight: 10,

@@ -2,12 +2,20 @@ import { StyleSheet, Text, View } from 'react-native';
 import TestComponent from './src/components/test-compontent';
 import CounterScreen from './src/screens/counter-screen';
 import ExamComponent from './src/components/exam-component';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const stack = createStackNavigator();
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <ExamComponent />
-    </View>
+    <NavigationContainer>
+      <stack.Navigator>
+        <stack.Screen name="Quiz_I" component={ExamComponent} />
+        <stack.Screen name="Counter" component={CounterScreen} />
+        {/* <stack.Screen name="Quiz_I" component={ExamComponent} /> */}
+      </stack.Navigator>
+    </NavigationContainer>
 
   );
 }
