@@ -4,6 +4,7 @@ import CounterScreen from './src/screens/counter-screen';
 import ExamComponent from './src/components/exam-component';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AuthScreen from './src/screens/auth-screen';
 
 const stack = createStackNavigator();
 
@@ -11,9 +12,8 @@ const App = () => {
   return (
     <NavigationContainer>
       <stack.Navigator>
-        <stack.Screen name="Quiz_I" component={ExamComponent} />
+        <stack.Screen name="Auth" component={AuthScreen} />
         <stack.Screen name="Counter" component={CounterScreen} />
-        {/* <stack.Screen name="Quiz_I" component={ExamComponent} /> */}
       </stack.Navigator>
     </NavigationContainer>
 
