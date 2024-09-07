@@ -1,12 +1,32 @@
 import React, { useState } from "react";
 import { TextInput, TouchableOpacity, View, Text, StyleSheet } from "react-native";
 
+interface IUserState {
+    isLoggedIn: boolean
+    user: IUser
+}
+
+interface IUser {
+    email: string
+    token: string
+    img_url: string
+}
+
 const AuthScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const [userData, setUserData] = useState<IUserState>()
+
     const handleLogin = () => {
-        console.log(email, password)
+        if (email == "abc@gmail.com" && password == "abc1234") {
+            const user: IUser = {
+                email: 'abc@gmail.com',
+                token: 'eBibfvisbnoinw',
+                img_url: ""
+            }
+            setUserData({ isLoggedIn: true, user: user })
+        }
     }
 
     return (<>
@@ -16,6 +36,7 @@ const AuthScreen = () => {
             <TouchableOpacity onPress={handleLogin} style={styles.buttonStyle}>
                 <Text style={styles.buttonTextStyle}>Login</Text>
             </TouchableOpacity>
+            {userData?.isLoggedIn ? <Text>Logged In Successfully</Text> : <></>}
         </View>
     </>)
 }
