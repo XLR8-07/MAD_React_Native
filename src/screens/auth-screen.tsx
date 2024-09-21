@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextInput, TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { getNationality } from "../services/dashboard-service";
 
 export interface IUserState {
     isLoggedIn: boolean
@@ -20,7 +21,7 @@ const AuthScreen = (props: any) => {
 
     const [userData, setUserData] = useState<IUserState>()
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         if (email == "abc@gmail.com" && password == "abc1234") {
             const user: IUser = {
                 first_name: '',
@@ -31,7 +32,10 @@ const AuthScreen = (props: any) => {
             }
             setUserData({ isLoggedIn: true, user: user })
         }
-        console.log("Current User Data", userData)
+        const country = await getNationality("miyazaki")
+
+        console.log("Get Awaited Nationality of Miyazaki", country.data)
+
     }
 
     const handleRegister = () => {
